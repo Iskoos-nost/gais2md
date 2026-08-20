@@ -98,7 +98,7 @@ Google AI Studio automatically saves your prompts and conversation histories to 
 4. Run `gais2md` on the downloaded file in the same directory:
 
 ```bash
-gais2md "Evaluating Your Portfolio Project" output.md
+gais2md "Conversation Name" output.md
 ```
 
 ## Output formats
