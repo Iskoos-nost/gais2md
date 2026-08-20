@@ -88,11 +88,18 @@ gais2md input.json output.md --anonymize
 gais2md input.json output.md --user-name "Alice" --assistant-name "Gemini"
 ```
 
-## How to export from AI Studio
+## How to find your JSON files
 
-1. Open a conversation in [Google AI Studio](https://aistudio.google.com/)
-2. Click the **⋮** menu → **Export** → **Download as JSON**
-3. Run `gais2md` on the downloaded file
+Google AI Studio automatically saves your prompts and conversation histories to **Google Drive**.
+
+1. Go to your [Google Drive](https://drive.google.com/).
+2. Open the **"AI Studio"** folder created by Google.
+3. Download your conversation file to your computer.
+4. Run `gais2md` on the downloaded file in the same directory:
+
+```bash
+gais2md "Evaluating Your Portfolio Project" output.md
+```
 
 ## Output formats
 

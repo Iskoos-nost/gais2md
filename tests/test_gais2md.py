@@ -139,6 +139,13 @@ class TestGais2MD(unittest.TestCase):
             self.assertTrue(output_path.with_suffix(".html").exists())
             self.assertTrue(output_path.with_suffix(".jsonl").exists())
 
+    def test_extensionless_file_conversion(self):
+        extensionless_file = Path(__file__).parent / "Evaluating Your Portfolio Project"
+        if extensionless_file.exists():
+            data = json.loads(extensionless_file.read_text(encoding="utf-8"))
+            md = gais2md.convert(data, include_thoughts=True)
+            self.assertIn("gemini-3.7-flash", md)
+
 
 if __name__ == "__main__":
     unittest.main()

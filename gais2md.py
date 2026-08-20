@@ -1307,9 +1307,12 @@ def main() -> None:
     if args.batch:
         if not args.input.is_dir():
             sys.exit(f"Error: Input path '{args.input}' must be a directory when using --batch.")
-        json_files = list(args.input.glob("*.json"))
+        json_files = [
+            f for f in args.input.iterdir()
+            if f.is_file() and f.suffix.lower() in ("", ".json")
+        ]
         if not json_files:
-            sys.exit(f"Error: No .json files found in '{args.input}'.")
+            sys.exit(f"Error: No valid JSON or extensionless files found in '{args.input}'.")
 
         print(f"Batch processing {len(json_files)} JSON file(s)...")
         for json_file in json_files:
